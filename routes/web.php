@@ -15,4 +15,4 @@ Route::get('/', function () {
     return view('dashboard');
 });
 
-Route::resource('tasks', 'TaskController', ['except' => ['show', 'create', 'edit']]);
+Route::resource('tasks', 'TaskController', ['except' => ['show', 'create', 'edit']]); //los metodos create y edit no van aca porque usamos bootstrap para esos casos

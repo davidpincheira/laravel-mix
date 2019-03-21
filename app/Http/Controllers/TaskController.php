@@ -20,24 +20,21 @@ class TaskController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-         
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request) //se encarga de guardar el registro
     {
-        //
+        $this->validate($request, [ //validamos que existan datos
+            'keep'=> 'required'
+        ]);
+
+        Task::created($request->all());
+
+        return;
+
     }
 
     /**
