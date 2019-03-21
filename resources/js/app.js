@@ -1,17 +1,24 @@
-    /* var urlUsers = 'https://jsonplaceholder.typicode.com/users'; */
     new Vue({
-        el: '#main',
-        /* created: function() {
-            this.getUsers();
+        el: '#crud',
+        created: function() {
+            this.getKeeps(); //traigo listado
         },
-        data: {
-            lists: []
+        data:{
+            keeps:[] //todas las tareas
         },
-        methods: {
-            getUsers: function() {
-                axios.get(urlUsers).then(response => {
-                    this.lists = response.data
-	            });
+        methods:{
+            getKeeps: function(){
+                var urlKeeps = 'tasks';
+                axios.get(urlKeeps).then(response => {
+                    this.keeps = response.data
+                });
+            },
+            deleteKeep: function(keep){
+                var url = 'tasks/' + keep.id; //elimino
+                axios.delete(url).then(response=>{ //ejecuto funcion para volver a cargar la lista
+                    this.getKeeps();
+                });
             }
-        } */
+        }
+        
     });

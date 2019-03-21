@@ -13,9 +13,8 @@
     </head>
     <body>
 
-    <div id="main" class="container">
+    <div id="crud" class="container">
         @stack('content')
-        
     </div>
     <script src="{{ asset('js/app.js') }}"></script>
     </body>
