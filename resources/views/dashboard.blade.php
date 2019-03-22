@@ -26,7 +26,7 @@
                         <td width="10px">@{{keep.id}}</td>
                         <td>@{{keep.keep}}</td>
                         <td width="10px">
-                            <a href="#" class="btn btn-warning btn-sm">Editar</a>
+                            <a href="#" class="btn btn-warning btn-sm" v-on:click.prevent="editKeep(keep);">Editar</a>
                         </td>
                         <td width="10px">
                             <a href="#" class="btn btn-danger btn-sm" v-on:click.prevent="deleteKeep(keep);">Eliminar</a>
@@ -34,7 +34,25 @@
                     </tr>
                 </tbody>
             </table>
+
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item" v-if="pagination.current_page > 1">
+                        <a class="page-link" href="#" @click.prevent="changePage(pagination.current_page - 1)">Previous</a>
+                    </li>
+                    <li class="page-item" v-for="page in pagesNumber" v-bind:class="page == isActived ? 'active' : ''">
+                        <a class="page-link" href="#" @click.prevent="changePage(page)">@{{page}}</a>
+                    </li>
+                    <li class="page-item" v-if="pagination.current_page < pagination.last_page">
+                        <a class="page-link" href="#" @click.prevent="changePage(pagination.current_page + 1)">Next</a>
+                    </li>
+                </ul>
+            </nav>
+
             @include('create')
+            @include('edit')
+
+            
     </div>
 </div>
 @endpush
