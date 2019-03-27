@@ -1,4 +1,4 @@
-# New Features!
+# Instalacion!
 
   - renombrar archivo .env.example por .env y crear bd y modificar credenciales
   - composer install
